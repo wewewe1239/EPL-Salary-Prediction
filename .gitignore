@@ -1,0 +1,14 @@
+__pycache__
+.vscode
+
+/.ipynb_checkpoints
+/html_pages
+*.log
+old
+/notebooks/.ipynb_checkpoints
+/docs/textgenrnn_texts.txt
+/docs/hn_weights.hdf5
+*.pyc
+/outputs
+/venv
+notebooks
