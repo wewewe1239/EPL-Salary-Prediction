@@ -1,11 +1,11 @@
 # This script allow to scrape www.whoscored.com and extract
-# players statistics during a season. 
+# players statistics during a season.
 # The Web Scraper is partly inspired by a solution available on this
-# link : https://github.com/cboutaud/whoscraped. The structure of 
+# link : https://github.com/cboutaud/whoscraped. The structure of
 # the website's pages has changed since then, we had to ajust some
-# features and add an exception management mechanism for when pages
-# are not proprely charged.
-
+# features and increase the robustness by adding an exception management 
+# mechanism for when pages are not proprely charged.
+#########################################################################
 
 # Imports
 from selenium import webdriver
@@ -22,56 +22,56 @@ baseURL = "https://www.whoscored.com/Teams/"
 
 # EPL Teams
 eplTeams = [
-    "167",  # Manchester City
-    "32",  # Manchester United
-    "30",  # Tottenham Hotspur
-    "26",  # Liverpool FC
-    "15",  # Chelsea FC
-    "13",  # Arsenal FC
-    "184",  # Burnley FC
-    "31",  # Everton FC
-    "14",  # Leicester City
-    "23",  # Newcastle United
-    "162",  # Crystal Palace
-    "183",  # AFC Bournemouth
-    "29",  # West Ham United
-    "27",  # Watford FC
-    "211",  # Brighton & Hove Albion
-    "166",  # Huddersfield Town
-    "18",  # Southampton FC
-    "161",  # Wolverhampton Wanderers
-    "188",  # Cardiff City
-    "170",  # Fulham FC
+    "167",  # MCFC / Manchester City
+    "32",  # MUFC / Manchester United
+    "30",  # THFC / Tottenham Hotspur
+    "26",  # LFC / Liverpool FC
+    "15",  # CFC / Chelsea FC
+    "13",  # AFC / Arsenal FC
+    "184",  # BFC / Burnley FC
+    "31",  # EFC / Everton FC
+    "14",  # LC / Leicester City
+    "23",  # NUFC / Newcastle United
+    "162",  # CP / Crystal Palace
+    "183",  # BOU / AFC Bournemouth
+    "29",  # WHUFC / West Ham United
+    "27",  # WAT / Watford FC
+    "211",  # BHA / Brighton & Hove Albion
+    "166",  # HUD / Huddersfield Town
+    "18",  # SFC / Southampton FC
+    "161",  # WWFC / Wolverhampton Wanderers
+    "188",  # CCFC / Cardiff City
+    "170",  # FFC / Fulham FC
 ]
 
 # Mapping Team ID -> Team Name
 teams_ID_to_name = {
-    "167": "Manchester City",
-    "32": "Manchester United",
-    "30": "Tottenham Hotspur",
-    "26": "Liverpool FC",
-    "15": "Chelsea FC",
-    "13": "Arsenal FC",
-    "184": "Burnley FC",
-    "31": "Everton FC",
-    "14": "Leicester City",
-    "23": "Newcastle United",
-    "162": "Crystal Palace",
-    "183": "AFC Bournemouth",
-    "29": "West Ham United",
-    "27": "Watford FC",
-    "211": "Brighton & Hove Albion",
-    "166": "Huddersfield Town",
-    "18": "Southampton FC",
-    "161": "Wolverhampton Wanderers",
-    "188": "Cardiff City",
-    "170": "Fulham FC",
+    "167": "MCFC",
+    "32": "MUFC",
+    "30": "THFC",
+    "26": "LFC",
+    "15": "CFC",
+    "13": "AFC",
+    "184": "BFC",
+    "31": "EFC",
+    "14": "LC",
+    "23": "NUFC",
+    "162": "CP",
+    "183": "BOU",
+    "29": "WHUFC",
+    "27": "WAT",
+    "211": "BHA",
+    "166": "HUD",
+    "18": "SFC",
+    "161": "WWFC",
+    "188": "CCFC",
+    "170": "FFC",
 }
 
 archiveUrl = "/Archive?stageId=16368"  # season 2018/2019
 
 os.chdir("inputs")
-outputfile = open("players_stats_2018_2019.csv", "w")
+outputfile = open("players_stats_2018_2019v2.csv", "w")
 csv_writer = csv.writer(outputfile)
 csv_writer.writerow(
     [
@@ -310,4 +310,3 @@ for team in eplTeams:
                 ALLTHEDAMNPLAYERS[indiv][34],
             ]
         )
-        
