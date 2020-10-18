@@ -70,8 +70,8 @@ teams_ID_to_name = {
 
 archiveUrl = "/Archive?stageId=16368"  # season 2018/2019
 
-os.chdir("inputs")
-outputfile = open("players_stats_2018_2019v2.csv", "w")
+os.chdir("data/raw")
+outputfile = open("players_stats_2018_2019.csv", "w")
 csv_writer = csv.writer(outputfile)
 csv_writer.writerow(
     [

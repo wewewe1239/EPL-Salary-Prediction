@@ -11,7 +11,7 @@ import re
 url = "https://www.spotrac.com/epl/rankings/2018/"
 name = "salaries_2018_2019"
 
-os.chdir("inputs")
+os.chdir("data/raw")
 data = {"ajax": "true", "mobile": "false"}
 soup = BeautifulSoup(requests.post(url, data=data).content, "html.parser")
 df = pd.DataFrame(columns=["Name", "Position", "Team", "Salary"])
