@@ -5,7 +5,12 @@ from fuzzywuzzy import process
 
 import os
 
-from preprocessing import normalize_names, match_players_with_different_names
+from preprocessing import (
+    normalize_names,
+    match_players_with_different_names,
+    drop_distinct_rows,
+)
+
 
 def merge_stats_and_salaries():
     player_stats = "data/raw/players_stats_2018_2019.csv"
@@ -14,19 +19,12 @@ def merge_stats_and_salaries():
     stats = pd.read_csv(player_stats)
     salaries = pd.read_csv(salaries)
 
-    dfs = [stats, salaries]
-    
-    for df in dfs:
-        df = normalize_names(df)
-
+    stats = normalize_names(stats)
+    salaries = normalize_names(salaries)
 
     stats = match_players_with_different_names(stats, salaries)
 
-
-
-    drop_index = stats[~stats["Name"].isin(salaries["Name"])].index
-    stats = stats.drop(drop_index).reset_index(drop=True)
-
+    stats = drop_distinct_rows(stats, salaries)
 
     df = pd.merge(stats, salaries, how="inner", on=["Name", "Team"])
 
@@ -36,14 +34,7 @@ def merge_stats_and_salaries():
 
     return df
 
+
 df = merge_stats_and_salaries()
 
-
-
-
-
-# os.chdir("data/interim")
-# df.to_csv("stats_&_salaries_2018_2019wewe.csv", index=False)
-
-print(os.getcwd())
-
+df.to_csv("data/interim/stats_&_salaries_2018_2019.csv", index=False)

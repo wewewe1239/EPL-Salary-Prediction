@@ -88,3 +88,5 @@ class TestFunctionnal(unittest.TestCase):
         )
 
         assert_frame_equal(actual_df, expected_df)
+
+

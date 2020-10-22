@@ -37,3 +37,8 @@ def match_players_with_different_names(df1, df2):
                 df1.loc[idx, "Name"] = player_sal["Name"]
 
     return df1
+
+def drop_distinct_rows(df1, df2):
+    drop_indeces = df1[~df1["Name"].isin(df2["Name"])].index
+    df1 = df1.drop(drop_indeces).reset_index(drop=True)
+    return df1
