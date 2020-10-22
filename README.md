@@ -16,7 +16,7 @@ I implemented two webscrappers to scrap the websites I will need to gather my da
 To recreate the environement, run this command in your terminal :  
 `$ conda env create -f environment.yaml`
 
-To run unit tests in watch mode and color output, run :
+To run unit tests in watch mode and color output, run :  
 `nosetests --with-watch --rednose --nologcapture`
 
 # Credits
