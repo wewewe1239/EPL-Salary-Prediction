@@ -16,5 +16,8 @@ I implemented two webscrappers to scrap the websites I will need to gather my da
 To recreate the environement, run this command in your terminal :  
 `$ conda env create -f environment.yaml`
 
+To run unit tests in watch mode and color output, run :
+`nosetests --with-watch --rednose --nologcapture`
+
 # Credits
 The WhoScored Web Scraper is inspired by a solution available [here](https://github.com/cboutaud/whoscraped). The structure of the website's pages has changed since then (2006), we had to ajust some features and add an exception management mechanism to handle errors when pages are not proprely charged.
