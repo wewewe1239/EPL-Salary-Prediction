@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from preprocessing import normalize_names, match_players_with_different_names
+from cleaning_for_merging import normalize_names, match_players_with_different_names
 from pandas.testing import assert_frame_equal
 
 
