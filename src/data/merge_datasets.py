@@ -5,7 +5,7 @@ from fuzzywuzzy import process
 
 import os
 
-from preprocessing import (
+from data.cleaning_for_merging import (
     normalize_names,
     match_players_with_different_names,
     drop_distinct_rows,

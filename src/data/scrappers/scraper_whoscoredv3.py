@@ -22,35 +22,34 @@ baseURL = "https://www.whoscored.com/Teams/"
 
 # EPL Teams
 eplTeams = [
-    # "167",  # MCFC / Manchester City
-    # "32",  # MUFC / Manchester United
-    # "30",  # THFC / Tottenham Hotspur
-    # "26",  # LFC / Liverpool FC
-    # "15",  # CFC / Chelsea FC
-    # "13",  # AFC / Arsenal FC
-    # "184",  # BFC / Burnley FC
-    # "31",  # EFC / Everton FC
-    # "14",  # LC / Leicester City
-    # "23",  # NUFC / Newcastle United
-    # "162",  # CP / Crystal Palace
-    # "183",  # BOU / AFC Bournemouth
-    # "29",  # WHUFC / West Ham United
-    # "27",  # WAT / Watford FC
-    # "211",  # BHA / Brighton & Hove Albion
-    # "166",  # HUD / Huddersfield Town
-    # "18",  # SFC / Southampton FC
-    # "161",  # WWFC / Wolverhampton Wanderers
-    # "188",  # CCFC / Cardiff City
-    # "170",  # FFC / Fulham FC
-    "175", # WBAFC / West Bromwich Albion
-    "16", # XXX / Sunderland
-    "168", # XXX / Norwich
-    "259", # XXX / Swansea
-    "214", # XXX / Hull
-    "21", # XXX / Middlesbrough
-    "96", # XXX / Stoke
-    "163", # SUFC / Sheffield United
-
+    "167",  # MCFC / Manchester City
+    "32",  # MUFC / Manchester United
+    "30",  # THFC / Tottenham Hotspur
+    "26",  # LFC / Liverpool FC
+    "15",  # CFC / Chelsea FC
+    "13",  # AFC / Arsenal FC
+    "184",  # BFC / Burnley FC
+    "31",  # EFC / Everton FC
+    "14",  # LC / Leicester City
+    "23",  # NUFC / Newcastle United
+    "162",  # CP / Crystal Palace
+    "183",  # BOU / AFC Bournemouth
+    "29",  # WHUFC / West Ham United
+    "27",  # WAT / Watford FC
+    "211",  # BHA / Brighton & Hove Albion
+    "166",  # HUD / Huddersfield Town
+    "18",  # SFC / Southampton FC
+    "161",  # WWFC / Wolverhampton Wanderers
+    "188",  # CCFC / Cardiff City
+    "170",  # FFC / Fulham FC
+    "175",  # WBAFC / West Bromwich Albion
+    "16",  # XXX / Sunderland
+    "168",  # XXX / Norwich
+    "259",  # XXX / Swansea
+    "214",  # XXX / Hull
+    "21",  # XXX / Middlesbrough
+    "96",  # XXX / Stoke
+    "163",  # SUFC / Sheffield United
 ]
 
 # Mapping Team ID -> Team Name
@@ -82,7 +81,7 @@ teams_ID_to_name = {
     "214": "XXX4",
     "21": "XXX5",
     "96": "XXX6",
-    "163": "SUFC"
+    "163": "SUFC",
 }
 
 # archiveUrl = "/Archive?stageId=17590" # season 2019/2020
@@ -92,11 +91,11 @@ teams_ID_to_name = {
 # archiveUrl = "/Archive?stageId=12496"  # season 2015/2016
 
 archiveUrls = [
-    "/Archive?stageId=17590", # season 2019/2020
-    "/Archive?stageId=16368", # season 2018/2019
-    "/Archive?stageId=15151", # season 2017/2018
-    "/Archive?stageId=13796", # season 2016/2017
-    "/Archive?stageId=12496"  # season 2015/2016
+    "/Archive?stageId=17590",  # season 2019/2020
+    "/Archive?stageId=16368",  # season 2018/2019
+    "/Archive?stageId=15151",  # season 2017/2018
+    "/Archive?stageId=13796",  # season 2016/2017
+    "/Archive?stageId=12496",  # season 2015/2016
 ]
 
 archiveUrls_to_season = {
@@ -104,7 +103,7 @@ archiveUrls_to_season = {
     "/Archive?stageId=16368": "2018_2019",
     "/Archive?stageId=15151": "2017_2018",
     "/Archive?stageId=13796": "2016_2017",
-    "/Archive?stageId=12496": "2015_2016"
+    "/Archive?stageId=12496": "2015_2016",
 }
 
 os.chdir("data/raw")
@@ -148,14 +147,13 @@ csv_writer.writerow(
         "LongB",  # Long balls per game
         "ThrB",  # Through balls per game
         "Rat",  # Rating
-        "Season", # Season  
+        "Season",  # Season
     ]
 )
 for team in eplTeams:
     print("Currently getting {}'s players data ...".format(teams_ID_to_name[team]))
 
-
-    for archiveUrl in archiveUrls :
+    for archiveUrl in archiveUrls:
 
         print("Season : " + archiveUrls_to_season[archiveUrl])
 
@@ -315,4 +313,6 @@ for team in eplTeams:
             j += 1
 
         for indiv in ALLTHEDAMNPLAYERS:
-            csv_writer.writerow([indiv] + [ALLTHEDAMNPLAYERS[indiv][i] for i in range (36)])
+            csv_writer.writerow(
+                [indiv] + [ALLTHEDAMNPLAYERS[indiv][i] for i in range(36)]
+            )
