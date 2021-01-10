@@ -120,14 +120,14 @@ csv_writer.writerow(
         "Weight",
         "Apps(Subs)",  # Appearances
         "Mins",  # Mins played
-        "Goals",  # Total goals
-        "Assists",  # Total assists
-        "Yel",  # Yellow cards
-        "Red",  # Red cards
+        "Goals",  # Total goals per season  
+        "Assists",  # Total assists per season
+        "Yel",  # Yellow cards during the season
+        "Red",  # Red cards during the season
         "SpG",  # Shots per game
-        "PS%",  # Pass success percentage
+        "PS%",  # Pass success percentage per season
         "AerWon",  # Aerial duels won per game
-        "MoM",  # Man of the match
+        "MoM",  # Man of the match per season
         "Tackles",  # Tackles per game
         "Inter",  # Interceptions per game
         "Fouls",  # Fouls per game
@@ -135,7 +135,7 @@ csv_writer.writerow(
         "Clear",  # Clearances per game
         "DrbPast",  # Dribbled past per game
         "Blocks",  # Outfielder block per game
-        "OwnG",  # Own goals
+        "OwnG",  # Own goals per season
         "KeyP",  # Key passes per game
         "Drb",  # Dribbles per game
         "Fouled",  # Fouled per game
